@@ -1,0 +1,53 @@
+Senja Xaviala
+📦app
+ ┣ 📂(public)                # Area publik (tampilan pembaca)
+ │ ┣ 📂tulisan               # Halaman daftar & detail karya
+ │ │ ┣ 📜page.js             # List tulisan (dengan filter kategori)
+ │ │ ┗ 📂[id]
+ │ │   ┗ 📜page.js           # Detail tulisan (rating & komentar)
+ │ ┣ 📂kategori
+ │ │ ┗ 📜page.js             # List kategori tulisan
+ │ ┣ 📂search
+ │ │ ┗ 📜page.js             # Search tulisan (Tahap 2)
+ │ ┗ 📜page.js               # Landing page (hero, highlight karya)
+ │
+ ┣ 📂(admin)                 # Area admin (manajemen konten)
+ │ ┣ 📜layout.js             # Layout khusus admin (sidebar, dll)
+ │ ┣ 📂dashboard
+ │ │ ┗ 📜page.js             # Dashboard overview
+ │ ┣ 📂tulisan
+ │ │ ┗ 📜page.js             # CRUD tulisan
+ │ ┣ 📂kategori
+ │ │ ┗ 📜page.js             # CRUD kategori
+ │ ┗ 📂media
+ │   ┗ 📜page.js             # Upload sampul/header
+ │
+ ┣ 📜layout.js               # Layout global (navbar/footer umum)
+ ┣ 📜globals.css
+ ┗ 📜page.js                 # Home default → redirect ke (public)
+ 
+📦components                 # Komponen UI reusable
+ ┣ 📜Navbar.js
+ ┣ 📜Footer.js
+ ┣ 📜CardTulisan.js
+ ┣ 📜Rating.js
+ ┗ 📜Komentar.js
+
+📦lib                        # Helper & logic
+ ┣ 📜db.js                   # Setup SQLite / Prisma / Drizzle
+ ┣ 📜auth.js                 # Auth helper (untuk admin)
+ ┗ 📜utils.js                # Fungsi utilitas umum
+
+📦services                   # API client-side atau integrasi eksternal
+ ┣ 📜music.js                 # Integrasi musik API (Spotify/YouTube)
+ ┗ 📜kbbi.js                  # Validasi teks KBBI (Tahap 2)
+
+📦public                      # Static files
+ ┣ 📜logo.svg
+ ┣ 📜hero.jpg
+ ┗ 📜default-cover.jpg
+
+📦api (opsional jika pakai Next.js API Routes / route handlers)
+ ┣ 📂tulisan
+ ┣ 📂kategori
+ ┗ 📂komentar

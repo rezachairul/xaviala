@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Xaviala",
+  title: "Xaviala | Senja Xaviala",
   description: "Web Profile of Xaviala",
 };
 

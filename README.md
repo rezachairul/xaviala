@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌇 Platform Karya Tulis Senja
 
-## Getting Started
+Platform web dinamis untuk karya tulis multi-genre (puisi, cerpen, pantun, dll) dengan fitur interaktif.  
+Proyek ini dibuat menggunakan **Next.js 13 (App Router)** dengan database **SQLite** (MVP), dan mendukung mode **Publik** serta **Admin**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Fitur Utama
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Publik (Pembaca)
+- 📖 Daftar karya tulis (puisi, cerpen, pantun, dll).
+- 🔎 Filter & kategori karya tulis.
+- 📝 Halaman detail karya (baca full).
+- ⭐ Rating & 💬 komentar.
+- 🎵 Mood tagging & integrasi musik (Tahap 2).
+- 🔍 Pencarian tulisan (Tahap 2).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Admin (Penulis / Pengelola)
+- 🔐 Login Admin.
+- 📊 Dashboard manajemen konten.
+- ✍️ CRUD kategori & karya tulis.
+- 🖼️ Upload media (cover, header, hero image).
+- ✅ Validasi teks KBBI (Tahap 2).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🗂️ Struktur Folder
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```plaintext
+📦app
+ ┣ 📂(public)                # Area publik (pembaca)
+ │ ┣ 📂tulisan               # List & detail karya
+ │ ┣ 📂kategori              # List kategori
+ │ ┣ 📂search                # Search tulisan (Tahap 2)
+ │ ┗ 📜page.js               # Landing page
+ │
+ ┣ 📂(admin)                 # Area admin (pengelola)
+ │ ┣ 📂dashboard             # Dashboard overview
+ │ ┣ 📂tulisan               # CRUD karya tulis
+ │ ┣ 📂kategori              # CRUD kategori
+ │ ┗ 📂media                 # Upload media
+ │
+ ┣ 📜layout.js               # Layout global
+ ┣ 📜globals.css
+ ┗ 📜page.js                 # Redirect ke halaman publik
+ 
+📦components                 # Komponen reusable (UI)
+📦lib                        # Database, auth, utils
+📦services                   # API eksternal (musik, KBBI)
+📦public                      # File statis (gambar, icon)
