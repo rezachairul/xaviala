@@ -1,4 +1,4 @@
-# 🌇 Platform Karya Tulis Senja
+# 🌇 Platform Karya Tulis Xaviala
 
 Platform web dinamis untuk karya tulis multi-genre (puisi, cerpen, pantun, dll) dengan fitur interaktif.  
 Proyek ini dibuat menggunakan **Next.js 13 (App Router)** dengan database **SQLite** (MVP), dan mendukung mode **Publik** serta **Admin**.
