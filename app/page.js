@@ -14,12 +14,10 @@ export default function Home() {
       />
 
       {/* Judul & Deskripsi */}
-      <h1 className="text-4xl font-bold tracking-wide mb-4">Xaviala</h1>
       <p className="max-w-2xl text-center text-lg leading-relaxed text-gray-600">
-        Platform karya tulis multi-genre dengan nuansa monokrom elegan. 
-        Di sini, tulisan bertemu dengan pembaca dalam pengalaman yang interaktif 
-        – mulai dari membaca, memberi komentar, hingga menikmati nuansa emosional 
-        dari setiap karya.
+        Xaviala adalah platform karya tulis multi-genre dengan nuansa monokrom yang tenang dan elegan.  
+        Di sini, tulisan bertemu dengan pembaca dalam pengalaman interaktif — dari membaca hingga merasakan emosi,  
+        meninggalkan kesan, dan mungkin menemukan diri di antara baris-barisnya.
       </p>
 
       {/* Tombol Navigasi */}
