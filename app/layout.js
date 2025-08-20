@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Xaviala | Senja Xaviala",
   description: "Web Profile of Xaviala",
+  icons: "/xaviala-logo.ico",
 };
 
 export default function RootLayout({ children }) {
