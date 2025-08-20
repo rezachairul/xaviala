@@ -36,16 +36,28 @@ export default function DashboardPage() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white shadow rounded-xl p-4">
-            <h2 className="text-lg font-semibold text-gray-700">Book</h2>
+            <h2 className="text-lg font-semibold text-gray-700">Buku</h2>
             <p className="text-2xl font-bold text-indigo-600">120</p>
           </div>
           <div className="bg-white shadow rounded-xl p-4">
-            <h2 className="text-lg font-semibold text-gray-700">Short Stories</h2>
+            <h2 className="text-lg font-semibold text-gray-700">Cerita Pendek</h2>
             <p className="text-2xl font-bold text-green-600">45</p>
           </div>
           <div className="bg-white shadow rounded-xl p-4">
-            <h2 className="text-lg font-semibold text-gray-700">Poetry</h2>
-            <p className="text-2xl font-bold text-pink-600">300</p>
+            <h2 className="text-lg font-semibold text-gray-700">Puisi</h2>
+            <p className="text-2xl font-bold text-pink-600">86</p>
+          </div>
+          <div className="bg-white shadow rounded-xl p-4">
+            <h2 className="text-lg font-semibold text-gray-700">Curhat</h2>
+            <p className="text-2xl font-bold text-indigo-600">1</p>
+          </div>
+          <div className="bg-white shadow rounded-xl p-4">
+            <h2 className="text-lg font-semibold text-gray-700">Gabut</h2>
+            <p className="text-2xl font-bold text-green-600">15</p>
+          </div>
+          <div className="bg-white shadow rounded-xl p-4">
+            <h2 className="text-lg font-semibold text-gray-700">Apa Hayoooo</h2>
+            <p className="text-2xl font-bold text-pink-600">12</p>
           </div>
         </div>
       </div>
