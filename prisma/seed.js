@@ -7,14 +7,14 @@ async function main() {
       {
         name: "Admin Xaviala",
         username: "admin",
-        email: "admin@xaviala.com",
+        email: "xaviala.admin@xaviala.write.id",
         password: "123456",
         role: "admin",
       },
       {
         name: "User Xaviala",
         username: "user",
-        email: "user@xaviala.com",
+        email: "xaviala.user@xaviala.write.id",
         password: "123456",
         role: "user",
       },
