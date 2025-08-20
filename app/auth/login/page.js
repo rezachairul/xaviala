@@ -19,7 +19,7 @@ export default function LoginPage() {
     });
 
     if (!res.error) {
-      router.push("/"); // redirect ke home
+      router.push("/admin/dashboard"); // redirect ke dashbaord admin
     } else {
       alert("Login gagal, cek email & password!");
     }
