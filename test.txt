@@ -1,4 +1,90 @@
 Senja Xaviala
+📦xaviala
+ ┣ 📂.git
+ ┣ 📂api
+ ┃ ┣ 📂kategori
+ ┃ ┣ 📂komentar
+ ┃ ┗ 📂tulisan
+ ┣ 📂app
+ ┃ ┣ 📂admin
+ ┃ ┃ ┣ 📂dashboard
+ ┃ ┃ ┃ ┗ 📜page.js
+ ┃ ┃ ┣ 📂kategori
+ ┃ ┃ ┃ ┗ 📜page.js
+ ┃ ┃ ┣ 📂media
+ ┃ ┃ ┃ ┗ 📜page.js
+ ┃ ┃ ┣ 📂tulisan
+ ┃ ┃ ┃ ┗ 📜page.js
+ ┃ ┃ ┣ 📜layout.js
+ ┃ ┃ ┗ 📜layout.server.js
+ ┃ ┣ 📂api
+ ┃ ┃ ┗ 📂auth
+ ┃ ┃ ┃ ┗ 📂[...nextauth]
+ ┃ ┃ ┃ ┃ ┗ 📜route.js
+ ┃ ┣ 📂auth
+ ┃ ┃ ┣ 📂forgot-password
+ ┃ ┃ ┃ ┗ 📜page.js
+ ┃ ┃ ┣ 📂login
+ ┃ ┃ ┃ ┗ 📜page.js
+ ┃ ┃ ┗ 📂register
+ ┃ ┃ ┃ ┗ 📜page.js
+ ┃ ┣ 📂public
+ ┃ ┃ ┣ 📂kategori
+ ┃ ┃ ┃ ┗ 📜page.js
+ ┃ ┃ ┣ 📂search
+ ┃ ┃ ┃ ┗ 📜page.js
+ ┃ ┃ ┣ 📂tulisan
+ ┃ ┃ ┃ ┣ 📂id
+ ┃ ┃ ┃ ┃ ┗ 📜page.js
+ ┃ ┃ ┃ ┗ 📜page.js
+ ┃ ┃ ┗ 📜page.js
+ ┃ ┣ 📜globals.css
+ ┃ ┣ 📜layout.js
+ ┃ ┣ 📜page.js
+ ┃ ┗ 📜xaviala-logo.ico
+ ┣ 📂components
+ ┃ ┣ 📜CardTulisan.js
+ ┃ ┣ 📜Footer.js
+ ┃ ┣ 📜Komentar.js
+ ┃ ┣ 📜Navbar.js
+ ┃ ┗ 📜Rating.js
+ ┣ 📂lib
+ ┃ ┣ 📜auth.js
+ ┃ ┣ 📜db.js
+ ┃ ┗ 📜utils.js
+ ┣ 📂node_modules
+ ┣ 📂prisma
+ ┃ ┣ 📂migrations
+ ┃ ┃ ┣ 📂20250820030312_add_user_model
+ ┃ ┃ ┃ ┗ 📜migration.sql
+ ┃ ┃ ┗ 📜migration_lock.toml
+ ┃ ┣ 📜schema.prisma
+ ┃ ┣ 📜seed.js
+ ┃ ┗ 📜xaviala.db
+ ┣ 📂public
+ ┃ ┣ 📂assets
+ ┃ ┃ ┣ 📂img
+ ┃ ┃ ┃ ┣ 📜xaviala-logo.png
+ ┃ ┃ ┃ ┗ 📜xaviala-logo.svg
+ ┃ ┃ ┗ 📂sound
+ ┃ ┣ 📜favicon.svg
+ ┃ ┗ 📜logo-xaviala.svg
+ ┣ 📂services
+ ┃ ┣ 📜kbbi.js
+ ┃ ┗ 📜music.js
+ ┣ 📜.env
+ ┣ 📜.gitignore
+ ┣ 📜eslint.config.mjs
+ ┣ 📜jsconfig.json
+ ┣ 📜next.config.mjs
+ ┣ 📜package-lock.json
+ ┣ 📜package.json
+ ┣ 📜postcss.config.mjs
+ ┣ 📜README.md
+ ┣ 📜test.txt
+ ┗ 📜xaviala.db
+
+ =======================================================================
 📦app
  ┣ 📂(public)                # Area publik (tampilan pembaca)
  │ ┣ 📂tulisan               # Halaman daftar & detail karya
@@ -51,3 +137,5 @@ Senja Xaviala
  ┣ 📂tulisan
  ┣ 📂kategori
  ┗ 📂komentar
+
+
