@@ -22,7 +22,7 @@ export default function LoginPage() {
     if (!res.error) {
       router.push("/admin/dashboard");
     } else {
-      alert("Login gagal, cek email & password!");
+      alert("Ups, gagal login. Coba cek lagi email & password ya 😅");
     }
   };
 
@@ -41,22 +41,25 @@ export default function LoginPage() {
         </div>
 
         {/* Title */}
-        <h1 className="text-2xl font-bold mb-6 text-center text-pink-700">
-          Selamat Datang, Xaviala
+        <h1 className="text-2xl font-bold mb-2 text-center text-pink-700">
+          Halo lagi, Penulis Hebat ✍️
         </h1>
+        <p className="text-center text-gray-500 mb-6 text-sm">
+          Yuk login dulu biar bisa lanjut nulis & berbagi cerita 🚀
+        </p>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="email"
-            placeholder="Email"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+            placeholder="Email kamu"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 text-pink-700"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Password rahasia ✨"
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -65,13 +68,13 @@ export default function LoginPage() {
             type="submit"
             className="w-full bg-pink-600 text-white p-3 rounded-lg hover:bg-pink-700 transition-colors duration-300"
           >
-            Masuk
+            Masuk 🎉
           </button>
         </form>
 
         {/* Footer */}
-        <p className="text-center text-sm text-gray-400 mt-4">
-          &copy; 2025 Xaviala. All rights reserved.
+        <p className="text-center text-sm text-gray-400 mt-6">
+          "Setiap login adalah langkah baru buat nulis lebih banyak." 💡
         </p>
       </div>
     </div>
