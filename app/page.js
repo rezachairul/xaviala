@@ -1,6 +1,9 @@
 // Page Utama
 
-// Library
+// Menu
+import {Navbar} from "@/components/templates/Navbar";
+
+// Pages
 import Hero from "@/components/templates/Hero";
 import About from "@/components/templates/About";
 import Explore from "@/components/templates/Explore";
@@ -11,11 +14,12 @@ export default function Home() {
     <>
 
       {/* Menu */}
+      <Navbar />
 
       {/* Pages Section */}
       <Hero />
-      <About />
       <Explore />
+      <About />
     </>
   );
 }
