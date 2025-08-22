@@ -185,7 +185,7 @@ function IconContainer({ mouseX, mouseY, title, icon, href, orientation }) {
               className={`absolute text-xs px-2 py-1 rounded-md bg-black/60 text-white shadow-md whitespace-pre
                 ${
                   orientation === "vertical"
-                    ? "left-[-4] top-1/2 -translate-y-1/2 -translate-x-full mr-2" // vertical → kiri
+                    ? "left-[-12px] top-1/2 -translate-y-1/2 -translate-x-full mr-2" // vertical → kiri
                     : "-top-4 left-1/2 -translate-x-1/2" // horizontal → atas
                 }`}
             >
