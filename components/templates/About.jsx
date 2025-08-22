@@ -12,7 +12,7 @@ const inter = Inter({
 
 export default function About() {
   return (
-    <section className="bg-white text-gray-800 min-h-screen py-16 px-6">
+    <section id="about" className="bg-white text-gray-800 min-h-screen py-16 px-6">
       <div className="max-w-3xl mx-auto">
         <div className="text-center">
           <h1

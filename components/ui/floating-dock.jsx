@@ -86,7 +86,7 @@ const FloatingDockDesktop = ({ items, className, orientation }) => {
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "hidden md:flex bg-white/10 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl p-2",
+        "hidden md:flex bg-white/10 backdrop-blur-md border border-neutral-200/50 dark:border-white/10 shadow-lg rounded-2xl p-2",
         orientation === "vertical"
           ? "flex-col h-auto w-16 items-center gap-4"
           : "flex-row h-16 items-end gap-4 px-4 pb-3",
@@ -108,9 +108,21 @@ const FloatingDockDesktop = ({ items, className, orientation }) => {
 function IconContainer({ mouseX, title, icon, href, orientation }) {
   let ref = useRef(null);
 
+  // let distance = useTransform(mouseX, (val) => {
+  //   let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+  //   return val - bounds.x - bounds.width / 2;
+  // });
   let distance = useTransform(mouseX, (val) => {
-    let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-    return val - bounds.x - bounds.width / 2;
+    let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, y: 0, width: 0, height: 0 };
+
+    if (orientation === "vertical") {
+      // hitung jarak mouse Y ke tengah icon
+      let mouseY = window.event?.pageY ?? 0;
+      return mouseY - (bounds.y + bounds.height / 2);
+    } else {
+      // horizontal → tetap pakai X
+      return val - (bounds.x + bounds.width / 2);
+    }
   });
 
   let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
@@ -155,7 +167,7 @@ function IconContainer({ mouseX, title, icon, href, orientation }) {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className="relative flex aspect-square items-center justify-center 
-                    rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-lg text-neutral-800 dark:text-white"
+                    rounded-full bg-white/20 backdrop-blur-md border border-neutral-200/50 dark:border-white/10 shadow-lg text-neutral-800 dark:text-white"
       >
         <AnimatePresence>
           {hovered && (
@@ -166,8 +178,8 @@ function IconContainer({ mouseX, title, icon, href, orientation }) {
               className={`absolute text-xs px-2 py-1 rounded-md bg-black/60 text-white shadow-md whitespace-pre
                 ${
                   orientation === "vertical"
-                    ? "left-0 top-1/2 -translate-y-1/2 -translate-x-full mr-2" // vertical → kiri
-                    : "-top-8 left-1/2 -translate-x-1/2" // horizontal → atas
+                    ? "left-[-4] top-1/2 -translate-y-1/2 -translate-x-full mr-2" // vertical → kiri
+                    : "-top-4 left-1/2 -translate-x-1/2" // horizontal → atas
                 }`}
             >
               {title}

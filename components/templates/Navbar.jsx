@@ -25,27 +25,27 @@ export function Navbar() {
   const links = [
     {
       title: "Home",
-      icon: <IconHome className="h-full w-full text-neutral-200" />,
-      href: "#home",
+      icon: <IconHome className="h-full w-full text-gray-600" />,
+      href: "#hero",
     },
     {
       title: "Category",
-      icon: <IconBook className="h-full w-full text-neutral-200" />,
+      icon: <IconBook className="h-full w-full text-gray-600" />,
       href: "#category",
     },
     {
       title: "Explore",
-      icon: <IconCompassFilled className="h-full w-full text-neutral-200" />,
+      icon: <IconCompassFilled className="h-full w-full text-gray-600" />,
       href: "#explore",
     },
     {
       title: "About",
-      icon: <IconInfoCircle className="h-full w-full text-neutral-200" />,
+      icon: <IconInfoCircle className="h-full w-full text-gray-600" />,
       href: "#about",
     },
     {
       title: "Contact",
-      icon: <IconAddressBook className="h-full w-full text-neutral-200" />,
+      icon: <IconAddressBook className="h-full w-full text-gray-600" />,
       href: "#contact",
     },
   ];
@@ -55,7 +55,7 @@ export function Navbar() {
         className={`fixed z-50 transition-all duration-500 ${
             isScrolled
             ? "right-6 top-1/2 -translate-y-1/2" // floating kanan
-            : "top-20 left-1/2 -translate-x-1/2" // lebih turun dikit
+            : "top-15 left-1/2 -translate-x-1/2" // lebih turun dikit
         }`}
     >
       <FloatingDock

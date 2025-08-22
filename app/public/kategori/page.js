@@ -1,1 +1,0 @@
-// List kategori tulisan

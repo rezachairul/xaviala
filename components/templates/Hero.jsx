@@ -32,7 +32,7 @@ export default function Hero() {
               Jelajahi Karya
               </a>
               <a
-              href="/public/about"
+              href="#about "
               className="px-6 py-3 border border-gray-400 text-gray-500 hover:bg-gray-50 transition rounded-full"
               >
               Tentang Xaviala
