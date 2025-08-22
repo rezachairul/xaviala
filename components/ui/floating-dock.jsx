@@ -81,10 +81,18 @@ const FloatingDockMobile = ({ items, className }) => {
 
 const FloatingDockDesktop = ({ items, className, orientation }) => {
   let mouseX = useMotionValue(Infinity);
+  let mouseY = useMotionValue(Infinity);
+
   return (
     <motion.div
-      onMouseMove={(e) => mouseX.set(e.pageX)}
-      onMouseLeave={() => mouseX.set(Infinity)}
+      onMouseMove={(e) => {
+        mouseX.set(e.clientX);
+        mouseY.set(e.clientY);
+      }}
+      onMouseLeave={() =>{
+        mouseX.set(Infinity);
+        mouseY.set(Infinity);
+      }}
       className={cn(
         "hidden md:flex bg-white/10 backdrop-blur-md border border-neutral-200/50 dark:border-white/10 shadow-lg rounded-2xl p-2",
         orientation === "vertical"
@@ -96,6 +104,7 @@ const FloatingDockDesktop = ({ items, className, orientation }) => {
       {items.map((item) => (
         <IconContainer
           mouseX={mouseX}
+          mouseY={mouseY}
           key={item.title}
           orientation={orientation}
           {...item}
@@ -105,25 +114,23 @@ const FloatingDockDesktop = ({ items, className, orientation }) => {
   );
 };
 
-function IconContainer({ mouseX, title, icon, href, orientation }) {
+function IconContainer({ mouseX, mouseY, title, icon, href, orientation }) {
   let ref = useRef(null);
 
-  // let distance = useTransform(mouseX, (val) => {
-  //   let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-  //   return val - bounds.x - bounds.width / 2;
-  // });
-  let distance = useTransform(mouseX, (val) => {
-    let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, y: 0, width: 0, height: 0 };
+  let distance = useTransform(
+    orientation === "vertical" ? mouseY : mouseX,
+    (val) => {
+      let bounds = ref.current?.getBoundingClientRect() ?? {
+        x: 0, y: 0, width: 0, height: 0
+      };
 
-    if (orientation === "vertical") {
-      // hitung jarak mouse Y ke tengah icon
-      let mouseY = window.event?.pageY ?? 0;
-      return mouseY - (bounds.y + bounds.height / 2);
-    } else {
-      // horizontal → tetap pakai X
-      return val - (bounds.x + bounds.width / 2);
+      if (orientation === "vertical") {
+        return val - (bounds.y + bounds.height / 2);
+      } else {
+        return val - (bounds.x + bounds.width / 2);
+      }
     }
-  });
+  );
 
   let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
   let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
