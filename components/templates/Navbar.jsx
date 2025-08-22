@@ -31,7 +31,7 @@ export function Navbar() {
     {
       title: "Category",
       icon: <IconBook className="h-full w-full text-gray-600" />,
-      href: "#category",
+      href: "/public/category",
     },
     {
       title: "Explore",
@@ -41,12 +41,12 @@ export function Navbar() {
     {
       title: "About",
       icon: <IconInfoCircle className="h-full w-full text-gray-600" />,
-      href: "#about",
+      href: "/public/about",
     },
     {
       title: "Contact",
       icon: <IconAddressBook className="h-full w-full text-gray-600" />,
-      href: "#contact",
+      href: "/public/contact",
     },
   ];
 

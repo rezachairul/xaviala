@@ -20,10 +20,7 @@ export default function Home() {
 
       {/* Pages Section */}
       <Hero />
-      <Category />
       <Explore />
-      <About />
-      <Contact />
     </>
   );
 }
