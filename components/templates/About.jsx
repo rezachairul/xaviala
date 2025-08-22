@@ -39,7 +39,7 @@ export default function About() {
           <blockquote className="border-l-4 border-gray-300 pl-4 italic text-gray-600 text-base">
             “Hai! Aku Ala.  
             Tidak ada yang menarik dari hidupku. Em, ya. Begitulah blog ini hadir,  
-            sebagai salah satu caraku meromantisasi kehidupan yang biasa saja.”  
+            sebagai salah satu caraku meromantisasi kehidupan yang biasa saja.”
             <br />
             — <span className="text-gray-500">Maret 31, 2019</span>
           </blockquote>

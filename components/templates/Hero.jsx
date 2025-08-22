@@ -26,7 +26,7 @@ export default function Hero() {
           {/* Tombol Navigasi */}
           <div className="flex gap-4 mt-8">
               <a
-              href="/public/explore"
+              href="#explore"
               className="px-6 py-3 border border-gray-800 text-gray-800 hover:bg-gray-100 transition rounded-full"
               >
               Jelajahi Karya
