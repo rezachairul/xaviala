@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
+import { useEffect, useState, useRef } from "react";
 import {
   AnimatePresence,
   motion,
@@ -9,8 +9,6 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-
-import { useRef, useState } from "react";
 
 export const FloatingDock = ({
   items,
@@ -25,60 +23,86 @@ export const FloatingDock = ({
         className={desktopClassName}
         orientation={orientation}
       />
-      <FloatingDockMobile items={items} className={mobileClassName} />
+      <FloatingDockMobile items={items} className={mobileClassName} orientation={orientation} />
     </>
   );
 };
 
+// Mobile Views
 const FloatingDockMobile = ({ items, className }) => {
-  const [open, setOpen] = useState(false);
+  let mouseX = useMotionValue(Infinity);
+  let mouseY = useMotionValue(Infinity);
+
+  const [inHero, setInHero] = useState(true); // default di hero
+  const [isLandscape, setIsLandscape] = useState(false); // detect orientasi
+
+  useEffect(() => {
+    // === detect orientation ===
+    const checkOrientation = () => {
+      setIsLandscape(window.innerWidth > window.innerHeight);
+    };
+
+    checkOrientation();
+    window.addEventListener("resize", checkOrientation);
+
+    return () => window.removeEventListener("resize", checkOrientation);
+  }, []);
+
+  useEffect(() => {
+    // === observer hero ===
+    const heroEl = document.querySelector("#hero");
+    if (!heroEl) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setInHero(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(heroEl);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={cn("relative block md:hidden", className)}>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            layoutId="nav"
-            className="absolute inset-x-0 bottom-full mb-2 flex flex-col gap-2"
-          >
-            {items.map((item, idx) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                exit={{
-                  opacity: 0,
-                  y: 10,
-                  transition: {
-                    delay: idx * 0.05,
-                  },
-                }}
-                transition={{ delay: (items.length - 1 - idx) * 0.05 }}
-              >
-                <a
-                  href={item.href}
-                  key={item.title}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-900"
-                >
-                  <div className="h-4 w-4">{item.icon}</div>
-                </a>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-800"
-      >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
-      </button>
-    </div>
+    <motion.div
+      onMouseMove={(e) => {
+        mouseX.set(e.clientX);
+        mouseY.set(e.clientY);
+      }}
+      onMouseLeave={() => {
+        mouseX.set(Infinity);
+        mouseY.set(Infinity);
+      }}
+      className={cn(
+        "fixed z-50 md:hidden bg-white/10 backdrop-blur-md border border-neutral-200/50 dark:border-white/10 shadow-lg rounded-2xl p-2 transition-all duration-500 ease-in-out",
+
+        inHero
+          ? isLandscape
+            ? "left-1/2 -translate-x-1/2 flex flex-row gap-2" // landscape + hero
+            : "left-1/2 -translate-x-1/2 flex flex-row gap-2" // portrait + hero
+          : isLandscape
+            ? "right-4 top-1/2 -translate-y-[45%] flex flex-col gap-3" // landscape + scroll
+            : "right-4 bottom-8 flex flex-col gap-3" // portrait + scroll
+      )}
+    >
+      {items.map((item) => (
+        <IconContainer
+          key={item.title}
+          mouseX={mouseX}
+          mouseY={mouseY}
+          orientation={inHero ? "horizontal" : "vertical"}
+          isMobile
+          {...item}
+        />
+      ))}
+    </motion.div>
   );
 };
 
+// Dekstop Views
 const FloatingDockDesktop = ({ items, className, orientation }) => {
   let mouseX = useMotionValue(Infinity);
   let mouseY = useMotionValue(Infinity);
@@ -114,55 +138,51 @@ const FloatingDockDesktop = ({ items, className, orientation }) => {
   );
 };
 
-function IconContainer({ mouseX, mouseY, title, icon, href, orientation }) {
+// Logic Icons
+function IconContainer({
+  mouseX,
+  mouseY,
+  title,
+  icon,
+  href,
+  orientation="horizontal",
+  isMobile = false,
+}) {
   let ref = useRef(null);
+
+  // ukuran dibedakan
+  let baseSize = isMobile ? 28 : 40;
+  let hoverSize = isMobile ? 44 : 80;
+  let baseIcon = isMobile ? 14 : 20;
+  let hoverIcon = isMobile ? 24 : 40;
 
   let distance = useTransform(
     orientation === "vertical" ? mouseY : mouseX,
     (val) => {
       let bounds = ref.current?.getBoundingClientRect() ?? {
-        x: 0, y: 0, width: 0, height: 0
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
       };
 
-      if (orientation === "vertical") {
-        return val - (bounds.y + bounds.height / 2);
-      } else {
-        return val - (bounds.x + bounds.width / 2);
-      }
+      return orientation === "vertical"
+        ? val - (bounds.y + bounds.height / 2)
+        : val - (bounds.x + bounds.width / 2);
     }
   );
 
-  let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  let widthTransform = useTransform(distance, [-150, 0, 150], [baseSize, hoverSize, baseSize]);
+  let heightTransform = useTransform(distance, [-150, 0, 150], [baseSize, hoverSize, baseSize]);
 
-  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
-  let heightTransformIcon = useTransform(
-    distance,
-    [-150, 0, 150],
-    [20, 40, 20]
-  );
+  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [baseIcon, hoverIcon, baseIcon]);
+  let heightTransformIcon = useTransform(distance, [-150, 0, 150], [baseIcon, hoverIcon, baseIcon]);
 
-  let width = useSpring(widthTransform, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-  let height = useSpring(heightTransform, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
+  let width = useSpring(widthTransform, { mass: 0.1, stiffness: 150, damping: 12 });
+  let height = useSpring(heightTransform, { mass: 0.1, stiffness: 150, damping: 12 });
 
-  let widthIcon = useSpring(widthTransformIcon, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-  let heightIcon = useSpring(heightTransformIcon, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
+  let widthIcon = useSpring(widthTransformIcon, { mass: 0.1, stiffness: 150, damping: 12 });
+  let heightIcon = useSpring(heightTransformIcon, { mass: 0.1, stiffness: 150, damping: 12 });
 
   const [hovered, setHovered] = useState(false);
 
@@ -174,10 +194,11 @@ function IconContainer({ mouseX, mouseY, title, icon, href, orientation }) {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className="relative flex aspect-square items-center justify-center 
-                    rounded-full bg-white/20 backdrop-blur-md border border-neutral-200/50 dark:border-white/10 shadow-lg text-neutral-800 dark:text-white"
+                   rounded-full bg-white/20 backdrop-blur-md border border-neutral-200/50 
+                   dark:border-white/10 shadow-lg text-neutral-800 dark:text-white"
       >
         <AnimatePresence>
-          {hovered && (
+          {!isMobile && hovered && (
             <motion.div
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
@@ -185,8 +206,8 @@ function IconContainer({ mouseX, mouseY, title, icon, href, orientation }) {
               className={`absolute text-xs px-2 py-1 rounded-md bg-black/60 text-white shadow-md whitespace-pre
                 ${
                   orientation === "vertical"
-                    ? "left-[-12px] top-1/2 -translate-y-1/2 -translate-x-full mr-2" // vertical → kiri
-                    : "-top-4 left-1/2 -translate-x-1/2" // horizontal → atas
+                    ? "left-[-12px] top-1/2 -translate-y-1/2 -translate-x-full mr-2"
+                    : "-top-4 left-1/2 -translate-x-1/2"
                 }`}
             >
               {title}
