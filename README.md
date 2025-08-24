@@ -24,6 +24,9 @@ Proyek ini dibuat menggunakan **Next.js 13 (App Router)** dengan database **SQLi
 
 ---
 
+## 🌐 Referensi
+- Website lama penulis (Blogspot): [https://laulakn.blogspot.com/](https://laulakn.blogspot.com/)
+
 ## 🗂️ Struktur Folder
 
 ```plaintext
