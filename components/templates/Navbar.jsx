@@ -36,7 +36,7 @@ export function Navbar() {
     {
       title: "Explore",
       icon: <IconCompassFilled className="h-full w-full text-gray-600" />,
-      href: "#explore",
+      href: "/public/explore",
     },
     {
       title: "About",
