@@ -28,3 +28,7 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.font-alex {
+  font-family: var(--font-alexbrush);
+}
