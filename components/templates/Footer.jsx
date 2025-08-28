@@ -7,7 +7,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-b from-white to-rose-50 text-gray-700 border-t border-rose-100">
+    <footer className="w-full bg-white text-gray-700">
       <div className="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10 text-center md:text-left">
         
         {/* Brand */}
@@ -35,18 +35,12 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a
-                href="/public/category"
-                className="hover:text-rose-600 transition"
-              >
+              <a href="/public/category" className="hover:text-rose-600 transition">
                 Category
               </a>
             </li>
             <li>
-              <a
-                href="/public/contact"
-                className="hover:text-rose-600 transition"
-              >
+              <a href="/public/contact" className="hover:text-rose-600 transition" >
                 Contact
               </a>
             </li>
@@ -57,29 +51,13 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold text-rose-500">Terhubung</h3>
           <div className="flex justify-center md:justify-start gap-5 mt-4">
-            <a
-              href="mailto:laulakn@gmail.com"
-              aria-label="Email"
-              className="hover:text-rose-600 transition"
-            >
+            <a href="mailto:laulakn@gmail.com" aria-label="Email" className="hover:text-rose-600 transition">
               <IconMail size={22} />
             </a>
-            <a
-              href="https://www.instagram.com/laulakn/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="hover:text-rose-600 transition"
-            >
+            <a href="https://www.instagram.com/laulakn/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-rose-600 transition">
               <IconBrandInstagram size={22} />
             </a>
-            <a
-              href="https://www.linkedin.com/in/laulakn/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-rose-600 transition"
-            >
+            <a href="https://www.linkedin.com/in/laulakn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-rose-600 transition">
               <IconBrandLinkedin size={22} />
             </a>
           </div>
