@@ -21,6 +21,7 @@ export default function Home() {
       {/* Pages Section */}
       <Hero />
       <Explore />
+      <Contact />
     </>
   );
 }
