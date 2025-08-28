@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import { alexBrush } from "./font";
+import { alexBrush, montserrat, poppins } from "./fonts";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +23,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${alexBrush.variable}`}>
+    <html lang="en" className={`${alexBrush.variable} ${montserrat.variable} ${poppins.variable}`}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
