@@ -8,11 +8,11 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full min-h-screen py-20 bg-gradient-to-b from-white to-rose-50 text-gray-800"
+      className="w-full min-h-screen py-20 bg-gradient-to-b from-white to-gray-50 text-gray-800"
     >
       <div className="max-w-3xl mx-auto px-6 text-center">
         {/* Heading */}
-        <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-rose-400 via-pink-500 to-purple-500 bg-clip-text text-transparent drop-shadow-sm">
+        <h1 className="text-4xl font-bold mb-4 text-gray-900">
           Yok Keep in Touch 👋
         </h1>
 
@@ -32,25 +32,28 @@ export default function Contact() {
         <div className="flex justify-center gap-8 text-2xl">
           <a
             href="mailto:laulakn@gmail.com"
-            className="text-gray-700 hover:text-rose-600 transition"
+            className="text-gray-500 hover:text-rose-500 transition-transform transform hover:scale-110"
+            aria-label="Email"
           >
-            <IconMail size={32} />
+            <IconMail size={36} />
           </a>
           <a
             href="https://www.instagram.com/laulakn/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-pink-600 hover:text-pink-800 transition"
+            className="text-gray-500 hover:text-pink-500 transition-transform transform hover:scale-110"
+            aria-label="Instagram"
           >
-            <IconBrandInstagram size={32} />
+            <IconBrandInstagram size={36} />
           </a>
           <a
             href="https://www.linkedin.com/in/laulakn/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-700 hover:text-blue-900 transition"
+            className="text-gray-500 hover:text-indigo-600 transition-transform transform hover:scale-110"
+            aria-label="LinkedIn"
           >
-            <IconBrandLinkedin size={32} />
+            <IconBrandLinkedin size={36} />
           </a>
         </div>
 

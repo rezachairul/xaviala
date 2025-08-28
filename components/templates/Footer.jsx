@@ -27,20 +27,20 @@ export default function Footer() {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold text-rose-500">Navigasi</h3>
+          <h3 className="text-lg font-semibold text-gray-900">Navigasi</h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <a href="/public/about" className="hover:text-rose-600 transition">
+              <a href="/public/about" className="text-gray-500 hover:text-rose-600 transition">
                 About
               </a>
             </li>
             <li>
-              <a href="/public/category" className="hover:text-rose-600 transition">
+              <a href="/public/category" className="text-gray-500 hover:text-rose-600 transition">
                 Category
               </a>
             </li>
             <li>
-              <a href="/public/contact" className="hover:text-rose-600 transition" >
+              <a href="/public/contact" className="text-gray-500 hover:text-rose-600 transition">
                 Contact
               </a>
             </li>
@@ -49,15 +49,31 @@ export default function Footer() {
 
         {/* Social */}
         <div>
-          <h3 className="text-lg font-semibold text-rose-500">Terhubung</h3>
+          <h3 className="text-lg font-semibold text-gray-900">Terhubung</h3>
           <div className="flex justify-center md:justify-start gap-5 mt-4">
-            <a href="mailto:laulakn@gmail.com" aria-label="Email" className="hover:text-rose-600 transition">
+            <a
+              href="mailto:laulakn@gmail.com"
+              aria-label="Email"
+              className="text-gray-500 hover:text-rose-600 transition-transform transform hover:scale-110"
+            >
               <IconMail size={22} />
             </a>
-            <a href="https://www.instagram.com/laulakn/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-rose-600 transition">
+            <a
+              href="https://www.instagram.com/laulakn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-gray-500 hover:text-pink-500 transition-transform transform hover:scale-110"
+            >
               <IconBrandInstagram size={22} />
             </a>
-            <a href="https://www.linkedin.com/in/laulakn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-rose-600 transition">
+            <a
+              href="https://www.linkedin.com/in/laulakn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-gray-500 hover:text-indigo-600 transition-transform transform hover:scale-110"
+            >
               <IconBrandLinkedin size={22} />
             </a>
           </div>
@@ -65,8 +81,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="text-center py-6 border-t border-rose-100">
-        <p className="text-sm text-gray-500">
+      <div className="text-center py-6 border-t border-gray-200">
+        <p className="text-sm italic text-gray-600">
           “Kata-kata ini adalah rumah. Terima kasih sudah singgah ☕✨”
         </p>
         <p className="mt-2 text-xs text-gray-400">

@@ -1,10 +1,10 @@
 const categories = [
-  { name: "Puisi", desc: "Kumpulan bait hangat yang lahir dari hati.", count: 24, color: "bg-rose-300 text-rose-900" },
-  { name: "Cerpen", desc: "Kisah singkat penuh makna, sekali duduk selesai.", count: 15, color: "bg-pink-300 text-pink-900" },
-  { name: "Esai", desc: "Tulisan reflektif tentang hidup, budaya, dan pemikiran.", count: 8, color: "bg-emerald-300 text-emerald-900" },
-  { name: "Jurnal Pribadi", desc: "Catatan keseharian, renungan, dan coretan spontan.", count: 12, color: "bg-indigo-300 text-indigo-900" },
-  { name: "Kolaborasi Komunitas", desc: "Proyek menulis bareng sahabat pena Xaviala.", count: 5, color: "bg-amber-300 text-amber-900" },
-  { name: "Eksperimen Bahasa", desc: "Tulisan unik, gaya bebas, mencoba hal-hal baru.", count: 7, color: "bg-sky-300 text-sky-900" },
+  { name: "Puisi", desc: "Kumpulan bait hangat yang lahir dari hati.", count: 24, hover: "hover:bg-rose-100 hover:border-rose-300 hover:text-rose-700" },
+  { name: "Cerpen", desc: "Kisah singkat penuh makna, sekali duduk selesai.", count: 15, hover: "hover:bg-pink-100 hover:border-pink-300 hover:text-pink-700" },
+  { name: "Esai", desc: "Tulisan reflektif tentang hidup, budaya, dan pemikiran.", count: 8, hover: "hover:bg-emerald-100 hover:border-emerald-300 hover:text-emerald-700" },
+  { name: "Jurnal Pribadi", desc: "Catatan keseharian, renungan, dan coretan spontan.", count: 12, hover: "hover:bg-indigo-100 hover:border-indigo-300 hover:text-indigo-700" },
+  { name: "Kolaborasi Komunitas", desc: "Proyek menulis bareng sahabat pena Xaviala.", count: 5, hover: "hover:bg-amber-100 hover:border-amber-300 hover:text-amber-700" },
+  { name: "Eksperimen Bahasa", desc: "Tulisan unik, gaya bebas, mencoba hal-hal baru.", count: 7, hover: "hover:bg-sky-100 hover:border-sky-300 hover:text-sky-700" },
 ];
 
 export default function Explore() {
@@ -14,7 +14,7 @@ export default function Explore() {
       className="min-h-screen flex flex-col items-center justify-center py-12 px-6 bg-white"
     >
       <h1 className="text-3xl font-bold mb-4 text-gray-900">Jelajahi Karya</h1>
-      <p className="text-gray-700 mb-10 max-w-2xl text-center">
+      <p className="text-gray-600 mb-10 max-w-2xl text-center">
         Kumpulan tulisan, catatan, dan karya random ala Xaviala. 
         Kadang serius, kadang ngalor-ngidul, tapi selalu dari hati.
       </p>
@@ -23,20 +23,20 @@ export default function Explore() {
         {categories.map((cat, idx) => (
           <div
             key={idx}
-            className="p-6 border rounded-xl shadow-sm hover:shadow-md transition bg-white flex flex-col"
+            className={`p-6 border border-gray-200 rounded-xl shadow-sm transition-all duration-300 bg-white group ${cat.hover}`}
           >
             <span
-              className={`inline-block text-xs px-3 py-1 rounded-full mb-3 font-medium ${cat.color}`}
+              className={`inline-block text-xs px-3 py-1 rounded-full mb-3 font-medium border border-gray-300 text-gray-500 transition-colors duration-300 group-hover:text-current group-hover:border-transparent`}
             >
               {cat.name}
             </span>
-            <h2 className="text-lg font-semibold mb-2 text-gray-900">
+            <h2 className="text-lg font-semibold mb-2 text-gray-800 group-hover:text-current">
               {cat.name} ({cat.count})
             </h2>
-            <p className="text-gray-600 mb-4 flex-grow">{cat.desc}</p>
+            <p className="text-gray-500 mb-4">{cat.desc}</p>
             <a
               href="#"
-              className="text-sm font-medium text-rose-600 hover:text-rose-800 transition"
+              className="text-sm font-medium text-gray-600 group-hover:text-current transition-colors"
             >
               Selengkapnya →
             </a>
